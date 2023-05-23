@@ -4,6 +4,8 @@ from discord.ext import commands
 import os
 import random
 
+#discord bot code
+
 TOKEN = 'MTAyNjI2NTI0MTkxMjM0NDY2Ng.GDkSqk.PPK0_tLc86MkJ__N2IB7c7z1fKBBkToX71GGaY'
 
 intents = discord.Intents.default()
