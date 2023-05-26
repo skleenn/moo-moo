@@ -13,15 +13,12 @@ intents.message_content = True
 client = discord.Client(command_prefix='/', intents=intents)
 tree = app_commands.CommandTree(client)
 
-links = json.load(open("gifs.json"))
-
-good_thoughts = ["moo. go watch thewizardliz.", "moo. go grind the code.", "moo. being sad is stupid.", "moo. get a fucking grip.", "moo. go talk to akhila about it."]
-screamies = ["STOP FEELING SAD ABOUT STUPID SHIT.", "STOP THINKING ABOUT THE PAST.", "BITCHH YOU CAN DO 10X BETTER.", "IM THE FUCKING BEST MY RIZZ GAME IS CRAZY.", "STOP WANTING TO BE LOVED SO BADLY AND PATHETICALLY. LOVE YOUR FUCKING SELF.", "YOU DONT NEED MEN."]
-
+gif_links = json.load(open("gifs.json"))
+moo_text = json.load(open("texts.json"))
 
 @tree.command(name="scream", description="screaming for ur sanity")
 async def scream(interaction):
-  await interaction.response.send_message(random.choice(screamies))
+  await interaction.response.send_message(random.choice(moo_text['screamies']))
 
 @tree.command(name = "nooked", description="animal crossing funsies")
 async def nooked(interaction):
@@ -29,7 +26,7 @@ async def nooked(interaction):
   
 @tree.command(name="hug", description="hugs for ur sanity")
 async def hugs(interaction):
-  await interaction.response.send_message(random.choice(links['hug']))
+  await interaction.response.send_message(random.choice(gif_links['hug']))
   
 @client.event
 async def on_ready():
@@ -42,7 +39,7 @@ async def on_message(message):
         return
     bad_thoughts = ["i wanna kms", "die", "sad", "hate", "suicide"]
     if any(word in message.content for word in bad_thoughts):
-      await message.channel.send(random.choice(good_thoughts))
+      await message.channel.send(random.choice(moo_text['good_thoughts']))
       
 client.run(token) 
 
