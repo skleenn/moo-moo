@@ -26,7 +26,10 @@ async def nooked(interaction):
   
 @tree.command(name="hug", description="hugs for ur sanity")
 async def hugs(interaction):
-  await interaction.response.send_message(random.choice(gif_links['hug']))
+  embedd = discord.Embed(colour=discord.Colour.random(), description="hugs!")
+  embedd.set_image(url="https://tenor.com/view/anime-hug-sweet-love-gif-14246498")
+  #random.choice(gif_links['hug'])
+  await interaction.response.send_message(embed=embedd)
   
 @client.event
 async def on_ready():
