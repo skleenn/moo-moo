@@ -35,6 +35,12 @@ async def real(interaction):
   embed = discord.Embed(colour=discord.Colour.random())
   embed.set_image(url=random.choice(gif_links['real']))
   await interaction.response.send_message(embed=embed)
+
+@tree.command(name="slap", description="slaps for venties")
+async def slaps(interaction, name:str):
+  embed = discord.Embed(colour=discord.Colour.random(), description=f"you slapped {name} !")
+  embed.set_image(url=random.choice(gif_links['slap']))
+  await interaction.response.send_message(embed=embed)
   
 @client.event
 async def on_ready():
