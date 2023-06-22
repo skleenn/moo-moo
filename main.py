@@ -41,6 +41,23 @@ async def slaps(interaction, name:str):
   embed = discord.Embed(colour=discord.Colour.random(), description=f"you slapped {name} !")
   embed.set_image(url=random.choice(gif_links['slap']))
   await interaction.response.send_message(embed=embed)
+
+@tree.command(name="funnyadvice", description="Funny advice (courtesy of spellcast.)")
+async def funnyadvice(interaction):
+  possibilities - [
+    ["You should ", "You should not ", "This is the greatest advice "],
+    ["explode ", "eat ", "defenestrate ", "consume ", "explode ", "slap "],
+    ["a car.", "jvm compiler arch (spellcast reference)", "esp32.", "mongodb server (programming reference).", "xtensa chip (spellcast reference).", "potato.", "the sun.", "an atom bomb."]
+  ]
+
+  value = ""
+
+  for ind, val in enumerate(possibilities):
+    value += random.choice(val)
+
+  await interaction.response.send_message(value)
+  #tcp reference spellcast was here hahahahah
+
   
 @client.event
 async def on_ready():
