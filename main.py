@@ -7,7 +7,6 @@ import random
 
 #discord bot code
 token = os.environ['TOKEN']
-
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(command_prefix='/', intents=intents)
